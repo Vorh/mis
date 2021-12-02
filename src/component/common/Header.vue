@@ -39,7 +39,7 @@ export default {
         menu: null,
         menus: [
             {
-                name: 'Grant',
+                name: 'Main',
                 to: '/',
                 id: 1
             },
@@ -56,7 +56,7 @@ export default {
         ]
     }),
     computed: {
-        ...mapGetters(['inn', 'orgName']),
+        ...mapGetters([]),
         activeTabGrant: function () {
             return {
                 'active-tab': this.tabId === 1,
