@@ -1,6 +1,6 @@
 <template>
     <v-app id="app">
-
+        <Header/>
         <NavBar :items="items" :drawer="drawer"/>
 
         <v-main>
@@ -18,10 +18,12 @@
 import Footer from "./component/common/Footer";
 import NavBar from "./component/common/NavBar";
 import {mapGetters} from "vuex";
+import Header from "./component/common/Header";
 
 export default {
     name: 'app',
     components: {
+        Header,
         Footer,
         NavBar,
     },
