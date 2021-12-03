@@ -106,7 +106,7 @@ const actions = {
                     text: 'Вагон прибыл на разгрузку в зону А.',
                     brack: -1,
                     date:'22:30, 2/11/2021',
-                    imageNumber: 'n_1.jpg',
+                    imageNumber: null,
                     imageVagon: null,
                 },
                 {

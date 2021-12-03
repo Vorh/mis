@@ -1,34 +1,44 @@
 <template>
-    <v-card>
+    <v-card height="550px">
         <v-card-title>
             <v-badge
                     inline
-                    color="error"
+                    color="warning"
                     dot
             ></v-badge>
-            <span class="text-h6 font-weight-light">Название: {{zone}}</span>
+            <span class=" font-weight-light"> {{zone}}</span>
         </v-card-title>
 
-
-        <v-card-text class="text-h5 font-weight-bold">
-            Статус: {{status}}
-
-            <v-row>
-                <v-spacer></v-spacer>
-                <v-col>
-                    Время прибытия: {{time}}
-                </v-col>
-                <v-spacer></v-spacer>
+        <v-card-text class="font-weight-light">
+            <v-row justify="center" class="text-center status-title mb-1">
+                Статус
             </v-row>
-
-            <v-row>
+            <v-row justify="center" class="text-center status">
+                {{status}}
+            </v-row>
+            <v-row justify="center" class="text-center mt-15">
+                <v-col>
+                    Время прибытия: <strong style="font-weight: bold">{{time}}</strong>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="text-center mt-0 pt-0">
                 <v-spacer></v-spacer>
                 <v-col>
-                    Количество вагонов: {{vagonCount}}
+                    Количество вагонов:  <strong style="font-weight: bold">{{vagonCount}}</strong>
                 </v-col>
                 <v-spacer></v-spacer>
             </v-row>
         </v-card-text>
+
+        <v-card-actions>
+            <v-row justify="center">
+                    <v-btn
+                    color="primary"
+                    >Начать разгрузку
+                    <v-icon>mdi-chevron-right-box</v-icon>
+                    </v-btn>
+            </v-row>
+        </v-card-actions>
     </v-card>
 </template>
 
@@ -49,4 +59,14 @@ export default {
 
 <style scoped>
 
+
+.status-title{
+    font-size: 20px;
+}
+
+.status {
+    font-size: 30px;
+    font-weight: normal;
+    color: #686868;
+}
 </style>
