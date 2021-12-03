@@ -111,8 +111,12 @@ export default {
             switch (mode) {
                 case 'Разгрузка началась':
                     return 'light-green';
+                case 'Первичный осмотр':
+                    return 'grey';
                 case 'Разгрузка приостановлена':
                     return 'grey';
+                case 'Черный список':
+                    return 'black';
                 case 'Разгружен':
                     return 'green';
                 case 'Бракованный':
