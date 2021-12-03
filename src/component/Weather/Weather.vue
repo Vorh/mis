@@ -1,6 +1,6 @@
 <template>
     <v-row justify="end">
-        Погода: -25
+        Погода: -25&#176;
     </v-row>
 </template>
 

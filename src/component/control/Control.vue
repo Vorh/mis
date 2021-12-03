@@ -1,5 +1,19 @@
 <template>
     <div>
+        <v-tabs fixed-tabs color="black" slider-color="grey">
+            <v-tab>Зона&nbsp;<b>A</b></v-tab>
+            <v-tab>Зона&nbsp;<b>B</b></v-tab>
+            <v-tab>Зона&nbsp;<b>C</b></v-tab>
+
+            <v-tab-item>
+            </v-tab-item>
+
+            <v-tab-item>
+            </v-tab-item>
+
+            <v-tab-item>
+            </v-tab-item>
+        </v-tabs>
     </div>
 </template>
 

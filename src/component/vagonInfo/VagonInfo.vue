@@ -12,7 +12,7 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col>
+            <v-col cols="6">
                 <v-container style="max-width: 600px;">
                     <v-timeline
                             dense
@@ -64,11 +64,11 @@
                         </v-timeline-item>
 
 
-                        <v-timeline-item class="mb-4" small>
+                        <v-timeline-item class="mb-4" small color="error">
                             <v-row justify="space-between">
                                 <v-col cols="7">
-                                    <v-chip class="white--text ml-0" color="red" label small>
-                                        WARN
+                                    <v-chip class="white--text ml-0" color="warning" label small>
+                                        ВНИМАНИЕ
                                     </v-chip>
                                     Процент брака 15%.
                                 </v-col>
@@ -79,11 +79,11 @@
                         </v-timeline-item>
 
 
-                        <v-timeline-item class="mb-4" small>
+                        <v-timeline-item class="mb-4" small color="error">
                             <v-row justify="space-between">
                                 <v-col cols="7">
-                                    <v-chip class="white--text ml-0" color="red" label small>
-                                        WARN
+                                    <v-chip class="white--text ml-0" color="warning" label small>
+                                        ВНИМАНИЕ
                                     </v-chip>
                                     Процент брака 18%.
                                 </v-col>
@@ -107,12 +107,35 @@
                     </v-timeline>
                 </v-container>
             </v-col>
-            <v-col>
-                <v-row>
-                    <img src="../../assets/lom.jpg">
+            <v-col cols="6">
+                <v-row justify="center">
+                    <v-card>
+                        <v-card-title>
+                            Камера на груз
+                        </v-card-title>
+
+                        <v-card-text>
+                            <v-container>
+
+                                <img style="width: 600px"
+                                     src="../../assets/lom.jpg">
+                            </v-container>
+                        </v-card-text>
+                    </v-card>
                 </v-row>
-                <v-row>
-                    <img src="../../assets/nomer.png">
+
+                <v-row justify="center">
+                    <v-card>
+                        <v-card-title>
+                            Камера на номер
+                        </v-card-title>
+
+                        <v-card-text>
+                            <v-container>
+                                <img style="width: 600px" src="../../assets/nomer.png">
+                            </v-container>
+                        </v-card-text>
+                    </v-card>
                 </v-row>
             </v-col>
         </v-row>
