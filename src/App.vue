@@ -34,8 +34,9 @@ export default {
             drawer: true,
 
             items: [
-                {title: 'Контроль', icon: 'mdi-train', link: '/'},
-                {title: 'Поставщики', icon: 'mdi-tray-full', link: '/suppliers'},
+                {title: 'Контроль', icon: 'mdi-train', link: '/', badge: true},
+                {title: 'Поставщики', icon: 'mdi-tray-full', link: '/suppliers', badge: false},
+                {title: 'Претензии', icon: 'mdi-sim-alert-outline', link: '/claims', badge: false},
             ],
         }
     },

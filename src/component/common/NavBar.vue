@@ -13,6 +13,11 @@
                     class="menu-border">
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
+                    <v-badge
+                            v-if="item.badge"
+                            color="error"
+                            dot
+                    ></v-badge>
                 </v-list-item-icon>
                 <v-list-item-content :disabled="item.disable">
                     <v-list-item-title class="subtitle-2 ml-1" :disabled="item.disable">

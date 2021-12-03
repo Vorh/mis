@@ -8,7 +8,7 @@
 
 
 export default {
-    name: "Suppliers",
+    name: "Claims",
 
 }
 </script>

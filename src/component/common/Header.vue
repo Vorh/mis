@@ -20,7 +20,6 @@
         </v-col>
         <v-col cols="4" class="ma-0 pa-0">
             <v-row justify="end" align="center">
-                <Alert/>
                 <div class="account ml-1">
                     Сотрудник ОТК: Иванов И.В.
                 </div>

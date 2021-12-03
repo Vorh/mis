@@ -16,8 +16,14 @@ const routes = [
 
     {
         path: '/suppliers',
-        name: 'Stats',
+        name: 'Suppliers',
         component: () => import('../component/suppliers/Suppliers.vue'),
+    },
+
+    {
+        path: '/claims',
+        name: 'Stats',
+        component: () => import('../component/claims/Claims.vue'),
     },
 
     {
