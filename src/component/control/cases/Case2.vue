@@ -9,7 +9,7 @@
             <span class=" font-weight-light"> {{zoneB.name}}</span>
         </v-card-title>
 
-        <v-card-text class="font-weight-light">
+        <v-card-text class="font-weight-light" @click.stop="redirect()">
             <v-row justify="center" class="text-center status-title mb-1">
                 Статус
             </v-row>
@@ -80,6 +80,12 @@ export default {
 
     computed: {
         ...mapGetters(['zoneB'])
+    },
+
+    methods: {
+        redirect() {
+            this.$router.push({name: 'Control'})
+        }
     }
 }
 </script>
