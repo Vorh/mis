@@ -59,6 +59,12 @@ export default {
         status: String,
         vagonbrak: String
     },
+
+    methods: {
+        redirect() {
+            this.$router.push({name: 'Control'})
+        }
+    }
 }
 </script>
 
