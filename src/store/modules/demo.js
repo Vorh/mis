@@ -1,6 +1,6 @@
 
 const state = {
-    stageIndex: 0,
+    stageIndex: 1,
 };
 
 const getters = {
@@ -108,20 +108,27 @@ const actions = {
                     date:'22:30, 2/11/2021',
                     imageNumber: null,
                     imageVagon: null,
+
+                    imageCvNumber: null,
+                    imageCvVagon: null,
                 },
                 {
                     text: 'Разгрузка началась',
                     brack: -1,
                     date:'22:35, 2/11/2021',
                     imageNumber: require('../../assets/vagon/n_1.jpg'),
-                    imageVagon: require('../../assets/vagon/1.jpg')
+                    imageVagon: require('../../assets/vagon/1.jpg'),
+                    imageCvNumber: require('../../assets/vagon/cv/n_1.jpg'),
+                    imageCvVagon: require('../../assets/vagon/cv/1.jpg'),
                 },
                 {
                     text: '',
                     brack: 4,
                     date:'22:40, 2/11/2021',
                     imageNumber: require('../../assets/vagon/n_2.jpg'),
-                    imageVagon: require('../../assets/vagon/2.jpg')
+                    imageVagon: require('../../assets/vagon/2.jpg'),
+                    imageCvNumber: require('../../assets/vagon/cv/n_2.jpg'),
+                    imageCvVagon: require('../../assets/vagon/cv/2.jpg'),
                 },
             ]
         };
@@ -147,21 +154,27 @@ const actions = {
                 brack: 7,
                 date:'22:44, 2/11/2021',
                 imageNumber: require('../../assets/vagon/n_3.jpg'),
-                imageVagon: require('../../assets/vagon/3.jpg')
+                imageVagon: require('../../assets/vagon/3.jpg'),
+                imageCvNumber: require('../../assets/vagon/cv/n_3.jpg'),
+                imageCvVagon: require('../../assets/vagon/cv/3.jpg'),
             },
             {
                 text: '',
                 brack: 9,
                 date:'22:49, 2/11/2021',
                 imageNumber: require('../../assets/vagon/n_4.jpg'),
-                imageVagon: require('../../assets/vagon/4.jpg')
+                imageVagon: require('../../assets/vagon/4.jpg'),
+                imageCvNumber: require('../../assets/vagon/cv/n_4.jpg'),
+                imageCvVagon: require('../../assets/vagon/cv/4.jpg'),
             },
             {
                 text: '',
                 brack: 16,
                 date:'22:50, 2/11/2021',
                 imageNumber: require('../../assets/vagon/n_5.jpg'),
-                imageVagon: require('../../assets/vagon/5.jpg')
+                imageVagon: require('../../assets/vagon/5.jpg'),
+                imageCvNumber: require('../../assets/vagon/cv/n_5.jpg'),
+                imageCvVagon: require('../../assets/vagon/cv/5.jpg'),
 
             },
         )

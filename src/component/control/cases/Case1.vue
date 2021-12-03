@@ -34,6 +34,7 @@
             <v-row justify="center">
                     <v-btn
                     color="primary"
+                    @click="startUploadingAction"
                     >Начать разгрузку
                     <v-icon>mdi-chevron-right-box</v-icon>
                     </v-btn>
@@ -43,7 +44,7 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
     name: "Case1",
@@ -54,6 +55,18 @@ export default {
         zone: String,
         status: String
     },
+
+
+    methods:{
+
+
+        ...mapActions(['nextStage']),
+
+        startUploadingAction(){
+            this.nextStage();
+            this.$router.push({name: 'Control'})
+        }
+    }
 }
 </script>
 

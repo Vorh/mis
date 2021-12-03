@@ -3,25 +3,28 @@
 
         <v-card>
             <v-card-title>
-                Зона: {{ citem.zone }} - Вагон: №{{ citem.number }} Поставщик: {{citem.company}}
+                Зона: {{ citem.zone }} - Вагон: №{{ citem.number }} Поставщик: {{ citem.company }}
                 <v-row justify="end">
-                    <v-btn
-                        class="mx-0"
-                        color="red"
-                        style="color: white"
-                    >
+                    <v-col>
+                        <v-row justify="end">
+                            <v-btn
+                                class="mx-0"
+                                color="red"
+                                style="color: white"
+                            >
 
-                        <v-icon>mdi-stop-circle-outline</v-icon>
-                        Остановить погрузку
-
-                    </v-btn>
+                                <v-icon>mdi-stop-circle-outline</v-icon>
+                                Остановить погрузку
+                            </v-btn>
+                        </v-row>
+                    </v-col>
                 </v-row>
             </v-card-title>
             <v-card-actions>
                 <v-container>
                     <v-row dense>
                         <v-col lg="6">
-                            <v-container >
+                            <v-container>
                                 <v-row dense class="mb-5">
                                     <v-col lg="11">
                                         <v-progress-linear
@@ -46,9 +49,10 @@
                                     <v-timeline-item
 
                                         v-for="action in citem.actions" class="mb-4"
-                                                     :color="getColor(action)"
-                                                     icon-color="grey lighten-2" small>
-                                        <v-row justify="space-between" class="row-action"                                         @click="clickCurrentAction(action)"
+                                        :color="getColor(action)"
+                                        icon-color="grey lighten-2" small>
+                                        <v-row justify="space-between" class="row-action"
+                                               @click="clickCurrentAction(action)"
                                         >
                                             <v-col cols="7">
                                                 <v-chip v-if="Number(action.brack)>=15" class="white--text ml-0"
@@ -89,10 +93,20 @@
                             <v-card max-height="600px">
                                 <v-card-title>
                                     Камера на груз
+
+                                    <v-switch
+                                        class="ml-5"
+                                        v-model="isCvVagon"
+                                        flat
+                                        label="CV"
+                                    ></v-switch>
                                 </v-card-title>
                                 <v-card-text>
                                     <v-container>
-                                        <img v-img style="width: 400px" height="400px"
+                                        <img v-if="isCvVagon" v-img style="width: 400px" height="400px"
+                                             :src="citem.currentAction.imageCvVagon">
+
+                                        <img v-else v-img style="width: 400px" height="400px"
                                              :src="citem.currentAction.imageVagon">
                                     </v-container>
                                 </v-card-text>
@@ -102,11 +116,21 @@
                             <v-card max-height="600px">
                                 <v-card-title>
                                     Камера на номер
+                                    <v-switch
+                                        class="ml-5"
+                                        v-model="isCvNumber"
+                                        flat
+                                        label="CV"
+                                    ></v-switch>
                                 </v-card-title>
 
                                 <v-card-text>
                                     <v-container>
-                                        <img v-img style="width: 400px" height="400px" :src="citem.currentAction.imageNumber">
+                                        <img v-if="isCvNumber" v-img style="width: 400px" height="400px"
+                                             :src="citem.currentAction.imageCvNumber">
+
+                                        <img v-else v-img style="width: 400px" height="400px"
+                                             :src="citem.currentAction.imageNumber">
                                     </v-container>
                                 </v-card-text>
                             </v-card>
@@ -126,17 +150,20 @@ export default {
     name: "VagonInfo",
     components: {},
 
-    data: () => ({}),
+    data: () => ({
+        isCvNumber: false,
+        isCvVagon: false,
+    }),
 
     computed: {
         ...mapGetters(['citem']),
 
 
-        isCritical: function (){
+        isCritical: function () {
 
-            if (this.citem.currentAction.brack >= 15){
+            if (this.citem.currentAction.brack >= 15) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }
@@ -146,13 +173,13 @@ export default {
 
         ...mapActions(['setCurrentAction']),
 
-        clickCurrentAction(action){
+        clickCurrentAction(action) {
             this.setCurrentAction(action);
         },
 
-        getColor(action){
+        getColor(action) {
 
-            if (action.brack >= 15){
+            if (action.brack >= 15) {
                 return 'error'
             }
 
