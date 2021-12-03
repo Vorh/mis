@@ -20,6 +20,12 @@ const routes = [
         component: () => import('../component/suppliers/Suppliers.vue'),
     },
 
+    {
+        path: '/vagoninfo/:id',
+        name: 'VagonInfo',
+        component: () => import('../component/vagonInfo/VagonInfo.vue'),
+    },
+
 
 ]
 

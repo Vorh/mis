@@ -16,9 +16,7 @@
             </v-avatar>
         </v-col>
         <v-col lg="6" md="10" sm="8" cols="10" class="ma-0 pa-0">
-            <v-row justify="end">
-                Погода: -25
-            </v-row>
+            <Weather/>
         </v-col>
         <v-col lg="3" md="1" class="hidden-sm-and-down">
             <v-row justify="end" align="center">
@@ -31,9 +29,10 @@
 </template>
 <script>
 import {mapGetters} from "vuex";
+import Weather from "../Weather/Weather";
 export default {
     name: 'Header',
-    components: {},
+    components: {Weather},
     data: () => ({
         tabId: 1,
         menu: null,
