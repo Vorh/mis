@@ -30,14 +30,12 @@
 
 <script>
 import {mapGetters} from "vuex";
-import Alert from "@/component/common/Alert";
 import Weather from "../Weather/Weather";
 
 export default {
     name: 'Header',
     components: {
         Weather,
-        Alert
     },
     data: () => ({
         tabId: 1,
