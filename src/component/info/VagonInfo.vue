@@ -1,111 +1,164 @@
 <template>
     <v-col>
-        <v-row>
-            Зона: {{citem.zone}} - Вагон: №{{citem.number}}
-        </v-row>
-        <v-row>
-            <v-col>
-                Текущий процент брака: {{citem.currentAction.brack}}
-            </v-col>
-            <v-col>
-                Время/Дата: {{citem.currentAction.date}}
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="6">
-                <v-container style="max-width: 600px;">
-                    <v-timeline
-                            dense
-                            clipped
+
+        <v-card>
+            <v-card-title>
+                Зона: {{ citem.zone }} - Вагон: №{{ citem.number }} Поставщик: {{citem.company}}
+                <v-row justify="end">
+                    <v-btn
+                        class="mx-0"
+                        color="red"
+                        style="color: white"
                     >
-                        <v-timeline-item v-for="action in citem.actions" class="mb-4" :color="citem.currentAction.brack>=15 ? 'error' : 'grey'" icon-color="grey lighten-2" small>
-                            <v-row justify="space-between" class="row-action">
-                                <v-col cols="7">
-                                    <v-chip v-if="Number(action.brack)>=15" class="white--text ml-0" color="warning" label small>
-                                        ВНИМАНИЕ
-                                    </v-chip>
-                                    <div v-if="Number(action.brack)>0">
-                                        Процент брака: {{action.brack}}%
-                                    </div>
-                                    <div v-if="Number(action.brack)<0">
-                                        {{action.text}}
-                                    </div>
-                                </v-col>
-                                <v-col class="text-right" cols="5">
-                                    {{action.date}}
-                                </v-col>
-                            </v-row>
-                        </v-timeline-item>
 
-                        <v-timeline-item
-                                class="mb-4"
-                                hide-dot
-                        >
-                            <v-btn
-                                    class="mx-0"
-                            >
-                                Оформить претензию
-                            </v-btn>
-                        </v-timeline-item>
+                        <v-icon>mdi-stop-circle-outline</v-icon>
+                        Остановить погрузку
 
-                    </v-timeline>
+                    </v-btn>
+                </v-row>
+            </v-card-title>
+            <v-card-actions>
+                <v-container>
+                    <v-row dense>
+                        <v-col lg="6">
+                            <v-container >
+                                <v-row dense class="mb-5">
+                                    <v-col lg="11">
+                                        <v-progress-linear
+                                            class="mt-2"
+                                            color="green"
+                                            buffer-value="50"
+                                            stream
+                                            height="15"
+                                        >
+                                        </v-progress-linear>
+                                    </v-col>
+                                    <v-col lg="1">
+                                        <v-chip color="green" style="color: white">
+                                            23:55
+                                        </v-chip>
+                                    </v-col>
+                                </v-row>
+                                <v-timeline
+                                    dense
+                                    clipped
+                                >
+                                    <v-timeline-item
+
+                                        v-for="action in citem.actions" class="mb-4"
+                                                     :color="getColor(action)"
+                                                     icon-color="grey lighten-2" small>
+                                        <v-row justify="space-between" class="row-action"                                         @click="clickCurrentAction(action)"
+                                        >
+                                            <v-col cols="7">
+                                                <v-chip v-if="Number(action.brack)>=15" class="white--text ml-0"
+                                                        color="warning" label small>
+                                                    ВНИМАНИЕ
+                                                </v-chip>
+                                                <div v-if="Number(action.brack)>0">
+                                                    Процент брака: {{ action.brack }}%
+                                                </div>
+                                                <div v-if="Number(action.brack)<0">
+                                                    {{ action.text }}
+                                                </div>
+                                            </v-col>
+                                            <v-col class="text-right" cols="5">
+                                                {{ action.date }}
+                                            </v-col>
+                                        </v-row>
+                                    </v-timeline-item>
+                                    <v-timeline-item
+                                        class="mb-4"
+                                        hide-dot
+                                        v-if="isCritical"
+                                    >
+                                        <v-btn
+                                            class="mx-0 ml-1"
+                                            color="red"
+                                            style="color: white"
+                                        >
+                                            <v-icon>mdi-clipboard-alert</v-icon>
+                                            Оформить претензию
+                                        </v-btn>
+                                    </v-timeline-item>
+
+                                </v-timeline>
+                            </v-container>
+                        </v-col>
+                        <v-col lg="3">
+                            <v-card max-height="600px">
+                                <v-card-title>
+                                    Камера на груз
+                                </v-card-title>
+                                <v-card-text>
+                                    <v-container>
+                                        <img v-img style="width: 400px" height="400px"
+                                             :src="citem.currentAction.imageVagon">
+                                    </v-container>
+                                </v-card-text>
+                            </v-card>
+                        </v-col>
+                        <v-col lg="3">
+                            <v-card max-height="600px">
+                                <v-card-title>
+                                    Камера на номер
+                                </v-card-title>
+
+                                <v-card-text>
+                                    <v-container>
+                                        <img v-img style="width: 400px" height="400px" :src="citem.currentAction.imageNumber">
+                                    </v-container>
+                                </v-card-text>
+                            </v-card>
+                        </v-col>
+                    </v-row>
                 </v-container>
-            </v-col>
-            <v-col cols="6">
-                <v-row justify="center">
-                    <v-card>
-                        <v-card-title>
-                            Камера на груз
-                        </v-card-title>
-
-                        <v-card-text>
-                            <v-container>
-
-                                <img style="width: 400px"
-                                     :src="citem.currentAction.imageVagon">
-                            </v-container>
-                        </v-card-text>
-                    </v-card>
-                </v-row>
-
-                <v-row justify="center">
-                    <v-card>
-                        <v-card-title>
-                            Камера на номер
-                        </v-card-title>
-
-                        <v-card-text>
-                            <v-container>
-                                <img style="width: 400px" :src="citem.currentAction.imageNumber">
-                            </v-container>
-                        </v-card-text>
-                    </v-card>
-                </v-row>
-            </v-col>
-        </v-row>
+            </v-card-actions>
+        </v-card>
     </v-col>
 </template>
 
 <script>
 
-import {mapGetters, mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
     name: "VagonInfo",
-    components: {
-    },
+    components: {},
 
-    data: () => ({
-
-    }),
+    data: () => ({}),
 
     computed: {
-        ...mapGetters([ 'citem']),
+        ...mapGetters(['citem']),
 
 
+        isCritical: function (){
+
+            if (this.citem.currentAction.brack >= 15){
+                return true;
+            }else {
+                return false;
+            }
+        }
     },
 
     methods: {
+
+        ...mapActions(['setCurrentAction']),
+
+        clickCurrentAction(action){
+            this.setCurrentAction(action);
+        },
+
+        getColor(action){
+
+            if (action.brack >= 15){
+                return 'error'
+            }
+
+            return 'success';
+        }
+
     },
 }
 </script>
@@ -153,10 +206,11 @@ a.file-container > input[type=file] {
     height: 100%;
 }
 
-.row-action{
+.row-action {
     cursor: pointer;
 }
-.row-action:hover{
+
+.row-action:hover {
     background-color: #f7f7f7;
     border-radius: 15px;
 

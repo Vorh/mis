@@ -21,6 +21,12 @@ const getters = {
 const actions = {
 
 
+    setCurrentAction({commit, dispatch, getters}, action) { // Вагоны разгружаются
+
+        let citem = getters.citem;
+        citem.currentAction  = action;
+        commit('setCitem', citem);
+    },
 
 
 };

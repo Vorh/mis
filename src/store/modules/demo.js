@@ -100,25 +100,26 @@ const actions = {
             number: 67864207,
             id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
             zone: 'A',
+            company: 'СтройСпецПрод',
             actions: [
                 {
-                    text: 'Вагон 1000043 прибыл на разгрузку в зоне А.',
+                    text: 'Вагон прибыл на разгрузку в зону А.',
                     brack: -1,
-                    date:'22:30, 2 dec 2021',
+                    date:'22:30, 2/11/2021',
                     imageNumber: 'n_1.png',
                     imageVagon: null,
                 },
                 {
-                    text: 'Разгрузка началась.',
+                    text: 'Разгрузка началась',
                     brack: -1,
-                    date:'22:35, 2 dec 2021',
+                    date:'22:35, 2/11/2021',
                     imageNumber: require('../../assets/vagon/n_1.png'),
                     imageVagon: require('../../assets/vagon/1.jpg')
                 },
                 {
                     text: '',
                     brack: 4,
-                    date:'22:40, 2 dec 2021',
+                    date:'22:40, 2/11/2021',
                     imageNumber: require('../../assets/vagon/n_1.png'),
                     imageVagon: require('../../assets/vagon/2.jpg')
                 },
@@ -140,44 +141,30 @@ const actions = {
         let citem = getters.citem;
 
 
-        citem.actions.push([
-            {
-                text: '',
-                brack: 5,
-                date:'22:42, 2 dec 2021',
-                imageNumber: 'n_1.png',
-                imageVagon: '2.png'
-            },
+        citem.actions.push(
             {
                 text: '',
                 brack: 7,
-                date:'22:44, 2 dec 2021',
-                imageNumber: 'n_1.png',
-                imageVagon: '3.png',
-            },
-
-            {
-                text: '',
-                brack: 8,
-                date:'22:46, 2 dec 2021',
-                imageNumber: 'n_1.png',
-                imageVagon: '3.png',
+                date:'22:44, 2/11/2021',
+                imageNumber: require('../../assets/vagon/n_1.png'),
+                imageVagon: require('../../assets/vagon/3.jpg')
             },
             {
                 text: '',
                 brack: 9,
-                date:'22:49, 2 dec 2021',
-                imageNumber: 'n_1.png',
-                imageVagon: '4.png',
+                date:'22:49, 2/11/2021',
+                imageNumber: require('../../assets/vagon/n_1.png'),
+                imageVagon: require('../../assets/vagon/4.jpg')
             },
             {
                 text: '',
                 brack: 16,
-                date:'22:50, 2 dec 2021',
-                imageNumber: 'n_1.png',
-                imageVagon: '5.png'
+                date:'22:50, 2/11/2021',
+                imageNumber: require('../../assets/vagon/n_1.png'),
+                imageVagon: require('../../assets/vagon/5.jpg')
+
             },
-        ])
+        )
 
         citem.currentAction = citem.actions[citem.actions.length-1];
 

@@ -1,13 +1,13 @@
 <template>
     <v-app-bar
-            height="100%"
-            dense
-            app
-            color="white"
-            class="app-bar"
+        height="100%"
+        dense
+        app
+        color="white"
+        class="app-bar"
     >
 
-        <v-col cols="4" class="ml-0 pl-0">
+        <v-col lg="1" class="ml-0 pl-0">
             <v-avatar style="width: 100%; height: 100%; border-radius: 0">
                 <img :src="require('../../assets/logo_full.png')"
                      @click="clickLogo"
@@ -15,18 +15,18 @@
                 />
                 <v-spacer></v-spacer>
             </v-avatar>
-        </v-col>
-        <v-col>
-            <v-btn @click="nextStage">
 
+        </v-col>
+        <v-col lg="1">
+            <v-btn
+                icon
+                @click="nextStage">
+                <v-icon>mdi-arrow-right-bold-box</v-icon>
             </v-btn>
         </v-col>
-        <v-col cols="4" class="ma-0 pa-0">
-            <Weather/>
-        </v-col>
-        <v-col cols="4" class="ma-0 pa-0">
+        <v-col lg="10" class="ma-0 pa-0 mr-2">
             <v-row justify="end" align="center">
-                <div class="account ml-1">
+                <div class="account ml-1 mr-2">
                     Сотрудник ОТК: Иванов И.В.
                 </div>
             </v-row>
@@ -36,12 +36,10 @@
 
 <script>
 import {mapActions, mapGetters} from "vuex";
-import Weather from "../Weather/Weather";
 
 export default {
     name: 'Header',
     components: {
-        Weather,
     },
     data: () => ({
         tabId: 1,
