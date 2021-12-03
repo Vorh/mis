@@ -103,7 +103,7 @@ export default {
             this.$router.push(to)
         },
         clickLogo() {
-            window.open('https://google.com/', '_blank').focus();
+            window.open('http://meta-industrial.space/', '_blank').focus();
         },
     }
     ,
