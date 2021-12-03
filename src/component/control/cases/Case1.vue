@@ -31,14 +31,16 @@
         </v-card-text>
 
         <v-card-actions>
+            <v-row></v-row>
             <v-row justify="center">
                     <v-btn
                     color="primary"
                     @click="startUploadingAction"
-                    >Начать разгрузку
+                    >Начать разгрузку&nbsp;
                     <v-icon>mdi-chevron-right-box</v-icon>
                     </v-btn>
             </v-row>
+            <v-row></v-row>
         </v-card-actions>
     </v-card>
 </template>

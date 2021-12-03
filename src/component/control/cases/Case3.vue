@@ -36,7 +36,7 @@
             </v-row>
             <v-row justify="center" class="text-center mt-0 pt-0">
                 <v-spacer></v-spacer>
-                <v-col>
+                <v-col cols="8">
                     Разгружено вагонов: <strong style="font-weight: bold">18</strong>
                 </v-col>
                 <v-spacer></v-spacer>
@@ -51,7 +51,7 @@
             </v-row>
             <v-row justify="center" class="text-center mt-0 pt-0">
                 <v-spacer></v-spacer>
-                <v-col>
+                <v-col cols="8">
                     Процент брака:  <v-chip color="primary" style="color: white">1.43%</v-chip>
                 </v-col>
                 <v-spacer></v-spacer>
@@ -59,13 +59,15 @@
         </v-card-text>
 
         <v-card-actions>
+            <v-row></v-row>
             <v-row justify="center">
                 <v-btn
                     color="primary"
-                >Отчёт
-                    <v-icon>mdi-chart-timeline</v-icon>
+                >Отчёт&nbsp;
+                    <v-icon>mdi-chart-box-outline</v-icon>
                 </v-btn>
             </v-row>
+            <v-row></v-row>
         </v-card-actions>
     </v-card>
 </template>

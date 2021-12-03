@@ -7,6 +7,17 @@
                 dot
             ></v-badge>
             <span class=" font-weight-light"> {{ zoneB.name }}</span>
+            <v-spacer></v-spacer>
+
+            <v-btn
+                    title="Остановить разгрузку"
+                    class="mx-0"
+                    color="red"
+                    style="color: white"
+            >
+
+                <v-icon>mdi-stop-circle-outline</v-icon>
+            </v-btn>
         </v-card-title>
 
         <v-card-text class="font-weight-light" @click.stop="redirect()">
@@ -44,7 +55,14 @@
             </v-row>
             <v-row justify="center" class="text-center mt-0 pt-0">
                 <v-spacer></v-spacer>
-                <v-col>
+                <v-col cols="8">
+                    Текущий вагон: <strong style="font-weight: bold">№67864207</strong>
+                </v-col>
+                <v-spacer></v-spacer>
+            </v-row>
+            <v-row justify="center" class="text-center mt-0 pt-0">
+                <v-spacer></v-spacer>
+                <v-col cols="8">
                     Процент брака:
                     <v-chip color="green" style="color: white">2.43%</v-chip>
                 </v-col>
