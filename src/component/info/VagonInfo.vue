@@ -1,14 +1,14 @@
 <template>
     <v-col>
         <v-row>
-            Зона: {{citem['zone']}} - Вагон: №{{citem['number']}}
+            Зона: {{citem.zone}} - Вагон: №{{citem.number}}
         </v-row>
         <v-row>
             <v-col>
-                Текущий {{citem['text'][citem['text'].length-1]}}
+                Текущий процент брака: {{citem.brack[citem.brack.length-1]}}
             </v-col>
             <v-col>
-                Время/Дата: {{citem['date'][citem['date'].length-1]}}
+                Время/Дата: {{citem.date[citem.date.length-1]}}
             </v-col>
         </v-row>
         <v-row>
@@ -18,79 +18,21 @@
                             dense
                             clipped
                     >
-
-                        <v-timeline-item  class="mb-4" color="grey" icon-color="grey lighten-2" small>
+                        <v-timeline-item v-for="idx in (citem.text.length-1)" class="mb-4" :color="citem.brack[idx]>=15 ? 'error' : 'grey'" icon-color="grey lighten-2" small>
                             <v-row justify="space-between">
                                 <v-col cols="7">
-                                    Вагон 1000043 прибыл на разгрузку в зоне А.
-<!--                                    {{citem['text'][idx]}}-->
-                                </v-col>
-                                <v-col class="text-right" cols="5">
-                                    22:30, 2 dec 2021
-<!--                                    {{citem['date'][idx]}}-->
-                                </v-col>
-                            </v-row>
-                        </v-timeline-item>
-
-                        <v-timeline-item class="mb-4" color="grey" icon-color="grey lighten-2" small>
-                            <v-row justify="space-between">
-                                <v-col cols="7">
-                                     Разгрузка началась.
-                                </v-col>
-                                <v-col class="text-right" cols="5">
-                                    22:35, 2 dec 2021
-                                </v-col>
-                            </v-row>
-                        </v-timeline-item>
-
-                        <v-timeline-item class="mb-4" color="grey" icon-color="grey lighten-2" small>
-                            <v-row justify="space-between">
-                                <v-col cols="7">
-                                    Процент брака: 5%.
-                                </v-col>
-                                <v-col class="text-right" cols="5">
-                                    22:40, 2 dec 2021
-                                </v-col>
-                            </v-row>
-                        </v-timeline-item>
-
-                        <v-timeline-item class="mb-4" color="grey" icon-color="grey lighten-2" small>
-                            <v-row justify="space-between">
-                                <v-col cols="7">
-                                    Процент брака: 10%.
-                                </v-col>
-                                <v-col class="text-right" cols="5">
-                                    22:45, 2 dec 2021
-                                </v-col>
-                            </v-row>
-                        </v-timeline-item>
-
-
-                        <v-timeline-item class="mb-4" small color="error">
-                            <v-row justify="space-between">
-                                <v-col cols="7">
-                                    <v-chip class="white--text ml-0" color="warning" label small>
+                                    <v-chip v-if="Number(citem.brack[idx])>=15" class="white--text ml-0" color="warning" label small>
                                         ВНИМАНИЕ
                                     </v-chip>
-                                    Процент брака 15%.
+                                    <div v-if="Number(citem.brack[idx])>0">
+                                        Процент брака: {{citem.brack[idx]}}%
+                                    </div>
+                                    <div v-if="Number(citem.brack[idx])<0">
+                                        {{citem.text[idx]}}
+                                    </div>
                                 </v-col>
                                 <v-col class="text-right" cols="5">
-                                    22:50, 2 dec 2021
-                                </v-col>
-                            </v-row>
-                        </v-timeline-item>
-
-
-                        <v-timeline-item class="mb-4" small color="error">
-                            <v-row justify="space-between">
-                                <v-col cols="7">
-                                    <v-chip class="white--text ml-0" color="warning" label small>
-                                        ВНИМАНИЕ
-                                    </v-chip>
-                                    Процент брака 18%.
-                                </v-col>
-                                <v-col class="text-right" cols="5">
-                                    22:55, 2 dec 2021
+                                    {{citem.date[idx]}}
                                 </v-col>
                             </v-row>
                         </v-timeline-item>
@@ -160,7 +102,8 @@ export default {
             number: 100006,
             id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
             zone: 'A',
-            text: ['Вагон 1000043 прибыл на разгрузку в зоне А.', 'Разгрузка началась.', 'Процент брака: 5%.', 'Процент брака: 10%.', 'Процент брака 15%.', 'Процент брака 18%.'],
+            text: ['Вагон 1000043 прибыл на разгрузку в зоне А.', 'Разгрузка началась.', '', '', '', ''],
+            brack: [-1, -1, 5, 10, 15, 18],
             date: ['22:30, 2 dec 2021', '22:35, 2 dec 2021', '22:40, 2 dec 2021', '22:45, 2 dec 2021', '22:50, 2 dec 2021' , '22:55, 2 dec 2021'],
 
         }],
@@ -172,10 +115,8 @@ export default {
         ...mapGetters(['order']),
 
         citem: function () {
-
             console.log(this.items.filter(value => value.id === this.$route.params.id));
             return this.items.filter(value => value.id === this.$route.params.id)[0]
-
         }
 
     },
