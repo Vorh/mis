@@ -99,8 +99,9 @@
                         >
                             <v-btn
                                     class="mx-0"
+                                    disabled
                             >
-                                Оформить претензию
+                                Претензия оформлена
                             </v-btn>
                         </v-timeline-item>
 
