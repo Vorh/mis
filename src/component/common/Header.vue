@@ -16,6 +16,11 @@
                 <v-spacer></v-spacer>
             </v-avatar>
         </v-col>
+        <v-col>
+            <v-btn @click="nextStage">
+
+            </v-btn>
+        </v-col>
         <v-col cols="4" class="ma-0 pa-0">
             <Weather/>
         </v-col>
@@ -30,7 +35,7 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 import Weather from "../Weather/Weather";
 
 export default {
@@ -89,6 +94,10 @@ export default {
         }
     },
     methods: {
+
+
+        ...mapActions(['nextStage']),
+
         goToAction(id) {
             let menu = this.menus.find(value => value.to === id);
             if (menu === this.menu)

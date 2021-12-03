@@ -26,7 +26,7 @@
                     <v-spacer></v-spacer>
                     <v-col cols="8">
                         <v-data-table
-                                :items="items"
+                                :items="cars"
                                 :headers="headers"
                                 hide-default-footer
                         >
@@ -99,47 +99,11 @@ export default {
             {text: "Действия", value: 'buttons'},
         ],
 
-        items: [
-            {
-                number: 43629840,
-                id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
-                company: 'СтройСпецПрод',
-                status: 'Претензия',
-                brack: '15',
-            },
-            {
-                number: 44738495,
-                id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f581f',
-                company: 'Кирпич',
-                status: 'Разгрузка началась',
-                brack: '0',
-            },
-            {
-                number: 70049039,
-                id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f581d1',
-                company: 'ЧерГор',
-                status: 'Разгрузка приостановлена',
-                brack: '5',
-            },
-            {
-                number: 54910398,
-                id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f582f2',
-                company: 'ЛомРжавМедь',
-                status: 'Разгружен',
-                brack: '7',
-            },
-            {
-                number: 55070010,
-                id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f3',
-                company: 'МетаПром',
-                status: 'Бракованный',
-                brack: '15',
-            },
-        ]
+
     }),
 
     computed: {
-        ...mapGetters([]),
+        ...mapGetters(['cars']),
     },
 
     methods: {
