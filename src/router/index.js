@@ -10,6 +10,12 @@ const routes = [
 
     {
         path: '/',
+        name: 'Common',
+        component: () => import('../component/control/Common.vue'),
+    },
+
+    {
+        path: '/control',
         name: 'Control',
         component: () => import('../component/control/Control.vue'),
     },

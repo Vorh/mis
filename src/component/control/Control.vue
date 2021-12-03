@@ -1,27 +1,27 @@
 <template>
     <div>
-        <v-tabs fixed-tabs color="black" slider-color="grey">
-            <v-tab>
-                <v-badge
-                        inline
-                        color="error"
-                        dot
-                ></v-badge>
-                &nbsp;Зона&nbsp;<b>A</b>
-            </v-tab>
-            <v-tab>
-                <v-badge
-                        inline
-                        color="error"
-                        dot
-                ></v-badge>
-                &nbsp;Зона&nbsp;<b>B</b>
-            </v-tab>
-            <v-tab>
-                Зона&nbsp;<b>C</b>
-            </v-tab>
+<!--        <v-tabs fixed-tabs color="black" slider-color="grey">-->
+<!--            <v-tab>-->
+<!--                <v-badge-->
+<!--                        inline-->
+<!--                        color="error"-->
+<!--                        dot-->
+<!--                ></v-badge>-->
+<!--                &nbsp;Зона&nbsp;<b>A</b>-->
+<!--            </v-tab>-->
+<!--            <v-tab>-->
+<!--                <v-badge-->
+<!--                        inline-->
+<!--                        color="error"-->
+<!--                        dot-->
+<!--                ></v-badge>-->
+<!--                &nbsp;Зона&nbsp;<b>B</b>-->
+<!--            </v-tab>-->
+<!--            <v-tab>-->
+<!--                Зона&nbsp;<b>C</b>-->
+<!--            </v-tab>-->
 
-            <v-tab-item>
+<!--            <v-tab-item>-->
                 <v-row class="fill-height" style="margin-top: 10px">
                     <v-spacer></v-spacer>
                     <v-col cols="8">
@@ -69,14 +69,14 @@
                     </v-col>
                     <v-spacer></v-spacer>
                 </v-row>
-            </v-tab-item>
+<!--            </v-tab-item>-->
 
-            <v-tab-item>
-            </v-tab-item>
+<!--            <v-tab-item>-->
+<!--            </v-tab-item>-->
 
-            <v-tab-item>
-            </v-tab-item>
-        </v-tabs>
+<!--            <v-tab-item>-->
+<!--            </v-tab-item>-->
+<!--        </v-tabs>-->
     </div>
 </template>
 
