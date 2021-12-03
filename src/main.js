@@ -9,8 +9,10 @@ import {axios} from './plugins/http-axios';
 import moment from 'moment';
 import '@mdi/font/css/materialdesignicons.css'
 import YmapPlugin from 'vue-yandex-maps'
+import VueWeather from 'vue-weather-widget'
 
 Vue.use(Vuex)
+Vue.use(VueWeather)
 
 Vue.prototype.$moment = moment;
 Vue.prototype.$utils = utils;

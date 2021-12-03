@@ -14,7 +14,7 @@
 
                     <v-col cols="10">
                         <div>
-                            <strong>MIS</strong> — {{ new Date().getFullYear() }}
+                            <strong>Meta Industrial Space</strong> — {{ new Date().getFullYear() }}
                         </div>
                     </v-col>
 
@@ -26,7 +26,7 @@
                                 <v-icon class="footer-icon">mdi-github</v-icon>
                             </a>
 
-                            <a href="mailto:mis@mail.ru">
+                            <a href="mailto:meta-industrial@mail.ru">
                                 <v-icon class="footer-icon">mdi-email</v-icon>
                             </a>
                         </div>

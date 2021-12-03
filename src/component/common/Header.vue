@@ -1,5 +1,6 @@
 <template>
     <v-app-bar
+            height="80px"
             dense
             app
             color="white"
@@ -8,9 +9,9 @@
 
         <v-col cols="4" class="ml-0 pl-0">
             <v-avatar style="width: 100%; border-radius: 0">
-                <img :src="require('../../assets/icon.png')"
+                <img :src="require('../../assets/icon-wide.png')"
                      @click="clickLogo"
-                     style="width: auto; height: 60px"
+                     style="width: auto; height: 50px"
                 />
                 <v-spacer></v-spacer>
             </v-avatar>
