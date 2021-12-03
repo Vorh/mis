@@ -34,8 +34,8 @@ export default {
             drawer: true,
 
             items: [
-                {title: 'Контроль', icon: 'mdi-clock-outline', link: '/', role: 'c'},
-                {title: 'Поставщики', icon: 'mdi-chart-box-outline', link: '/suppliers', role: 'c'},
+                {title: 'Контроль', icon: 'mdi-train', link: '/'},
+                {title: 'Поставщики', icon: 'mdi-tray-full', link: '/suppliers'},
             ],
         }
     },

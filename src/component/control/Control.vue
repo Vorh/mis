@@ -1,6 +1,5 @@
 <template>
     <div>
-
     </div>
 </template>
 
@@ -12,7 +11,9 @@ export default {
     name: "Control",
 
 
-    data: () => ({}),
+    data: () => ({
+
+    }),
 
     computed: {
         ...mapGetters([]),
