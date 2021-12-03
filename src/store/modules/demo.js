@@ -139,14 +139,7 @@ const actions = {
 
 
     middleStage({commit, dispatch, getters}) { // Вагоны разгружаются
-
-    },
-
-    criticalDefect({commit, dispatch, getters}) { // Найден критический процент брака
-
-
         let citem = getters.citem;
-
 
         citem.actions.push(
             {
@@ -158,6 +151,22 @@ const actions = {
                 imageCvNumber: require('../../assets/vagon/cv/n_3.jpg'),
                 imageCvVagon: require('../../assets/vagon/cv/3.jpg'),
             },
+
+        )
+
+        citem.currentAction = citem.actions[citem.actions.length-1];
+
+        commit('setCitem', citem)
+    },
+
+    criticalDefect({commit, dispatch, getters}) { // Найден критический процент брака
+
+
+        let citem = getters.citem;
+
+
+        citem.actions.push(
+
             {
                 text: '',
                 brack: 9,

@@ -18,11 +18,7 @@
 
         </v-col>
         <v-col lg="1">
-            <v-btn
-                icon
-                @click="nextStage">
-                <v-icon>mdi-arrow-right-bold-box</v-icon>
-            </v-btn>
+
         </v-col>
         <v-col lg="10" class="ma-0 pa-0 mr-2">
             <v-row justify="end" align="center">

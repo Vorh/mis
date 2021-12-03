@@ -34,7 +34,7 @@
             <v-row></v-row>
             <v-row justify="center">
                     <v-btn
-                    color="primary"
+                    color="warning"
                     @click="startUploadingAction"
                     >Начать разгрузку&nbsp;
                     <v-icon>mdi-chevron-right-box</v-icon>

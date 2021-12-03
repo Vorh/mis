@@ -4,18 +4,40 @@
         <v-card>
             <v-card-title>
                 Зона: {{ citem.zone }} - Вагон: №{{ citem.number }} Поставщик: {{ citem.company }}
+
+                <v-btn
+                    class="ml-2"
+                icon
+                @click="nextStage">
+                <v-icon>mdi-refresh</v-icon>
+            </v-btn>
                 <v-row justify="end">
                     <v-col>
                         <v-row justify="end">
                             <v-btn
+                                v-if="uploading"
                                 class="mx-0"
                                 color="red"
+                                @click="showDelete = true"
                                 style="color: white"
                             >
 
                                 <v-icon>mdi-stop-circle-outline</v-icon>
-                                Остановить погрузку
+                                Остановить разгрузку
                             </v-btn>
+
+                            <v-btn
+                                v-else
+                                class="mx-0"
+                                color="green"
+                                style="color: white"
+                                @click="uploading = true"
+                            >
+
+                                <v-icon>mdi-stop-circle-outline</v-icon>
+                                Возобновить разгрузку
+                            </v-btn>
+
                         </v-row>
                     </v-col>
                 </v-row>
@@ -28,13 +50,19 @@
                                 <v-row dense class="mb-5">
                                     <v-col lg="11">
                                         <v-progress-linear
+                                            v-if="uploading"
                                             class="mt-2"
-                                            color="green"
-                                            buffer-value="50"
+                                            :color="isCritical ? 'red': 'green'"
+                                            :buffer-value="progressBarValue"
                                             stream
                                             height="15"
                                         >
+                                            {{progressBarValue}}%
                                         </v-progress-linear>
+
+                                        <template v-else>
+                                            <v-chip color="red" style="color: white">Разгрузка остановлена</v-chip>
+                                        </template>
                                     </v-col>
                                     <v-col lg="1">
                                         <v-chip color="green" style="color: white">
@@ -74,7 +102,7 @@
                                     <v-timeline-item
                                         class="mb-4"
                                         hide-dot
-                                        v-if="isCritical"
+                                        v-if="isCritical && !uploading"
                                     >
                                         <v-btn
                                             class="mx-0 ml-1"
@@ -139,25 +167,51 @@
                 </v-container>
             </v-card-actions>
         </v-card>
+
+        <Modal v-model="showDelete">
+            <template v-slot:title>Остановить разгрузку?</template>
+            <template v-slot:action-primary>
+                <v-btn color="red"
+                       style="color: white"
+                       @click="stopVagon">
+                    Остановить
+                </v-btn>
+            </template>
+        </Modal>
+
     </v-col>
 </template>
 
 <script>
 
 import {mapActions, mapGetters, mapMutations} from "vuex";
+import Modal from "../common/Modal";
 
 export default {
     name: "VagonInfo",
-    components: {},
+    components: {Modal},
 
     data: () => ({
+        showDelete: false,
         isCvNumber: false,
         isCvVagon: false,
+
+        uploading: true,
     }),
 
     computed: {
         ...mapGetters(['citem']),
 
+        progressBarValue: function (){
+
+            if (this.citem.currentAction.brack >= 15)
+                return 20;
+            else if(this.citem.currentAction.brack === 7)
+                return 15;
+            else
+                return 10;
+
+        },
 
         isCritical: function () {
 
@@ -172,6 +226,12 @@ export default {
     methods: {
 
         ...mapActions(['setCurrentAction']),
+        ...mapActions(['nextStage']),
+
+
+        stopVagon(){
+            this.uploading = false;
+        },
 
         clickCurrentAction(action) {
             this.setCurrentAction(action);

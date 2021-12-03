@@ -3,7 +3,7 @@
         <v-row>
             <v-col lg="4">
                 <Case1 :zone="'Зона А'"
-                       :status="'Ожидает состав'"
+                       :status="'Состав прибыл'"
                        :time="'23:00'"
                        :vagonCount="16"/>
             </v-col>

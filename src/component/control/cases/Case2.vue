@@ -10,12 +10,24 @@
             <v-spacer></v-spacer>
 
             <v-btn
-                    title="Остановить разгрузку"
-                    class="mx-0"
-                    color="red"
-                    style="color: white"
+                v-if="uploading"
+                @click="showDelete = true"
+                title="Остановить разгрузку"
+                class="mx-0"
+                color="red"
+                style="color: white"
             >
+                <v-icon>mdi-stop-circle-outline</v-icon>
+            </v-btn>
 
+            <v-btn
+                v-else
+                @click="uploading = true"
+                title="Возобновить разгрузку"
+                class="mx-0"
+                color="green"
+                style="color: white"
+            >
                 <v-icon>mdi-stop-circle-outline</v-icon>
             </v-btn>
         </v-card-title>
@@ -24,8 +36,13 @@
             <v-row justify="center" class="text-center status-title mb-1">
                 Статус
             </v-row>
-            <v-row justify="center" class="text-center status">
-                {{ zoneB.status }}
+            <v-row  justify="center" class="text-center status">
+                <template v-if="uploading">
+                    {{ zoneB.status }}
+                </template>
+                <template v-else>
+                    Разгрузка остановлена
+                </template>
             </v-row>
 
             <v-row justify="center " class="mt-5 text-center">
@@ -35,7 +52,7 @@
             </v-row>
             <v-row justify="center" class="text-center mt-0 pt-0">
                 <v-col lg="11">
-                    <v-progress-linear
+                    <v-progress-linear v-if="uploading"
                         class="mt-2"
                         color="green"
                         buffer-value="60"
@@ -87,15 +104,32 @@
                 </v-col>
             </v-row>
         </v-card-actions>
+
+        <Modal v-model="showDelete">
+            <template v-slot:title>Остановить разгрузку?</template>
+            <template v-slot:action-primary>
+                <v-btn color="red"
+                       style="color: white"
+                       @click="stopVagon">
+                    Остановить
+                </v-btn>
+            </template>
+        </Modal>
     </v-card>
 </template>
 
 <script>
 import {mapGetters, mapMutations} from "vuex";
+import Modal from "../../common/Modal";
 
 export default {
     name: "ZoneB",
+    components: {Modal},
 
+    data: () => ({
+        showDelete: false,
+        uploading: true,
+    }),
 
     computed: {
         ...mapGetters(['zoneB'])
@@ -104,7 +138,11 @@ export default {
     methods: {
         redirect() {
             this.$router.push({name: 'Control'})
-        }
+        },
+
+        stopVagon() {
+            this.uploading = false;
+        },
     }
 }
 </script>
