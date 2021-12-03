@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer
             app
-            height="100vh - 60px"
+            height="100vh - 52px"
             permanent
             expand-on-hover
             class="sidebar-navigation-drawer">
@@ -51,7 +51,7 @@ export default {
 
 <style>
 .sidebar-navigation-drawer {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 52px);
 }
 .v-list-group.pl-0.v-list-group--active.v-list-group--no-action.v-list-group--sub-group.primary--text .v-list-group__items {
     padding-left: 40px;
