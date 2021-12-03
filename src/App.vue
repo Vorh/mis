@@ -35,8 +35,9 @@ export default {
 
             items: [
                 {title: 'Контроль', icon: 'mdi-train', link: '/', badge: true},
-                {title: 'Поставщики', icon: 'mdi-tray-full', link: '/suppliers', badge: false},
                 {title: 'Претензии', icon: 'mdi-sim-alert-outline', link: '/claims', badge: false},
+                {title: 'Поставщики', icon: 'mdi-tray-full', link: '/suppliers', badge: false},
+                {title: 'Аналитика', icon: 'mdi-chart-arc', link: '/analytics', badge: false},
             ],
         }
     },
@@ -44,7 +45,7 @@ export default {
     methods: {},
 
     computed: {
-        ...mapGetters(['username', 'usertype']),
+        ...mapGetters([]),
     },
 }
 </script>

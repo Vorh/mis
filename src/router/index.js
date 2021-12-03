@@ -27,6 +27,12 @@ const routes = [
     },
 
     {
+        path: '/analytics',
+        name: 'Analytics',
+        component: () => import('../component/analytics/Analytics.vue'),
+    },
+
+    {
         path: '/vagoninfo/:id',
         name: 'VagonInfo',
         component: () => import('../component/vagonInfo/VagonInfo.vue'),
