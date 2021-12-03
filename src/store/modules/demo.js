@@ -57,35 +57,35 @@ const actions = {
 
         let cars=[
             {
-                number: 43629840,
+                number: 67864207,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
                 company: 'СтройСпецПрод',
                 status: 'Разгрузка началась',
                 brack: '4',
             },
             {
-                number: 44738495,
+                number: 67214457,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f581f',
                 company: 'Кирпич',
                 status: 'Первичный осмотр',
                 brack: '0',
             },
             {
-                number: 70049039,
+                number: 62162476,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f581d1',
                 company: 'ЧерГор',
                 status: 'Первичный осмотр',
                 brack: '4',
             },
             {
-                number: 54910398,
+                number: 67453205,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f582f2',
                 company: 'ЛомРжавМедь',
                 status: 'Первичный осмотр',
                 brack: '3',
             },
             {
-                number: 55070010,
+                number: 62257620,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f3',
                 company: 'МетаПром',
                 status: 'Первичный осмотр',
@@ -96,36 +96,35 @@ const actions = {
         commit('setCars', cars);
 
 
-
         let item = {
-            number: 100006,
+            number: 67864207,
             id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
             zone: 'A',
-            currentAction: {
-                text: '',
-                brack: 4,
-                date:'22:40, 2 dec 2021'
-            },
             actions: [
                 {
                     text: 'Вагон 1000043 прибыл на разгрузку в зоне А.',
                     brack: -1,
-                    date:'22:30, 2 dec 2021'
+                    date:'22:30, 2 dec 2021',
+                    imageNumber: 'n_1.png',
+                    imageVagon: null,
                 },
-
                 {
                     text: 'Разгрузка началась.',
                     brack: -1,
-                    date:'22:35, 2 dec 2021'
+                    date:'22:35, 2 dec 2021',
+                    imageNumber: require('../../assets/vagon/n_1.png'),
+                    imageVagon: require('../../assets/vagon/1.jpg')
                 },
-
                 {
                     text: '',
                     brack: 4,
-                    date:'22:40, 2 dec 2021'
+                    date:'22:40, 2 dec 2021',
+                    imageNumber: require('../../assets/vagon/n_1.png'),
+                    imageVagon: require('../../assets/vagon/2.jpg')
                 },
             ]
         };
+        item.currentAction = item.actions[item.actions.length-1];
 
         commit('setCitem', item);
     },
@@ -138,68 +137,51 @@ const actions = {
     criticalDefect({commit, dispatch, getters}) { // Найден критический процент брака
 
 
-        let item = {
-            number: 100006,
-            id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
-            zone: 'A',
-            currentAction: {
+        let citem = getters.citem;
+
+
+        citem.actions.push([
+            {
+                text: '',
+                brack: 5,
+                date:'22:42, 2 dec 2021',
+                imageNumber: 'n_1.png',
+                imageVagon: '2.png'
+            },
+            {
+                text: '',
+                brack: 7,
+                date:'22:44, 2 dec 2021',
+                imageNumber: 'n_1.png',
+                imageVagon: '3.png',
+            },
+
+            {
+                text: '',
+                brack: 8,
+                date:'22:46, 2 dec 2021',
+                imageNumber: 'n_1.png',
+                imageVagon: '3.png',
+            },
+            {
+                text: '',
+                brack: 9,
+                date:'22:49, 2 dec 2021',
+                imageNumber: 'n_1.png',
+                imageVagon: '4.png',
+            },
+            {
                 text: '',
                 brack: 16,
-                date:'22:50, 2 dec 2021'
+                date:'22:50, 2 dec 2021',
+                imageNumber: 'n_1.png',
+                imageVagon: '5.png'
             },
-            actions: [
-                {
-                    text: 'Вагон 1000043 прибыл на разгрузку в зоне А.',
-                    brack: -1,
-                    date:'22:30, 2 dec 2021'
-                },
+        ])
 
-                {
-                    text: 'Разгрузка началась.',
-                    brack: -1,
-                    date:'22:35, 2 dec 2021'
-                },
+        citem.currentAction = citem.actions[citem.actions.length-1];
 
-                {
-                    text: '',
-                    brack: 4,
-                    date:'22:40, 2 dec 2021'
-                },
-
-                {
-                    text: '',
-                    brack: 5,
-                    date:'22:42, 2 dec 2021'
-                },
-
-                {
-                    text: '',
-                    brack: 7,
-                    date:'22:44, 2 dec 2021'
-                },
-
-
-                {
-                    text: '',
-                    brack: 8,
-                    date:'22:46, 2 dec 2021'
-                },
-
-                {
-                    text: '',
-                    brack: 9,
-                    date:'22:49, 2 dec 2021'
-                },
-
-                {
-                    text: '',
-                    brack: 16,
-                    date:'22:50, 2 dec 2021'
-                },
-            ]
-        };
-
-        commit('setCitem', item)
+        commit('setCitem', citem)
     },
 
     createClaim({commit, dispatch, getters}){ // Создать претензию
@@ -215,35 +197,35 @@ const actions = {
 
         let cars=[
             {
-                number: 43629840,
+                number: 67864207,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f4',
                 company: 'СтройСпецПрод',
                 status: 'Претензия',
                 brack: '35',
             },
             {
-                number: 44738495,
+                number: 67214457,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f581f',
                 company: 'Кирпич',
                 status: 'Разгружен',
                 brack: '0',
             },
             {
-                number: 70049039,
+                number: 62162476,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f581d1',
                 company: 'ЧерГор',
                 status: 'Черный список',
                 brack: '0',
             },
             {
-                number: 54910398,
+                number: 67453205,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f582f2',
                 company: 'ЛомРжавМедь',
                 status: 'Разгружен',
                 brack: '7',
             },
             {
-                number: 55070010,
+                number: 62257620,
                 id: '0x1bbe067bb0fc732188f5bc487a195a3b7d94e743fb0011834a73a38d662f583f3',
                 company: 'МетаПром',
                 status: 'Разгружен',

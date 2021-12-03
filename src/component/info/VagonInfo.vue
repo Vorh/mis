@@ -61,8 +61,8 @@
                         <v-card-text>
                             <v-container>
 
-                                <img style="width: 600px"
-                                     src="../../assets/lom.jpg">
+                                <img style="width: 400px"
+                                     :src="citem.currentAction.imageVagon">
                             </v-container>
                         </v-card-text>
                     </v-card>
@@ -76,7 +76,7 @@
 
                         <v-card-text>
                             <v-container>
-                                <img style="width: 600px" src="../../assets/nomer.png">
+                                <img style="width: 400px" :src="citem.currentAction.imageNumber">
                             </v-container>
                         </v-card-text>
                     </v-card>
@@ -101,6 +101,7 @@ export default {
 
     computed: {
         ...mapGetters([ 'citem']),
+
 
     },
 
