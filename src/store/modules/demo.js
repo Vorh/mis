@@ -106,21 +106,21 @@ const actions = {
                     text: 'Вагон прибыл на разгрузку в зону А.',
                     brack: -1,
                     date:'22:30, 2/11/2021',
-                    imageNumber: 'n_1.png',
+                    imageNumber: 'n_1.jpg',
                     imageVagon: null,
                 },
                 {
                     text: 'Разгрузка началась',
                     brack: -1,
                     date:'22:35, 2/11/2021',
-                    imageNumber: require('../../assets/vagon/n_1.png'),
+                    imageNumber: require('../../assets/vagon/n_1.jpg'),
                     imageVagon: require('../../assets/vagon/1.jpg')
                 },
                 {
                     text: '',
                     brack: 4,
                     date:'22:40, 2/11/2021',
-                    imageNumber: require('../../assets/vagon/n_1.png'),
+                    imageNumber: require('../../assets/vagon/n_2.jpg'),
                     imageVagon: require('../../assets/vagon/2.jpg')
                 },
             ]
@@ -146,21 +146,21 @@ const actions = {
                 text: '',
                 brack: 7,
                 date:'22:44, 2/11/2021',
-                imageNumber: require('../../assets/vagon/n_1.png'),
+                imageNumber: require('../../assets/vagon/n_3.jpg'),
                 imageVagon: require('../../assets/vagon/3.jpg')
             },
             {
                 text: '',
                 brack: 9,
                 date:'22:49, 2/11/2021',
-                imageNumber: require('../../assets/vagon/n_1.png'),
+                imageNumber: require('../../assets/vagon/n_4.jpg'),
                 imageVagon: require('../../assets/vagon/4.jpg')
             },
             {
                 text: '',
                 brack: 16,
                 date:'22:50, 2/11/2021',
-                imageNumber: require('../../assets/vagon/n_1.png'),
+                imageNumber: require('../../assets/vagon/n_5.jpg'),
                 imageVagon: require('../../assets/vagon/5.jpg')
 
             },
